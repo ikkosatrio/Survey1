@@ -132,10 +132,32 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        AlertDialogError.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                //Dismiss your alert here then you will be able to call it again
+                sweetAlertDialog.dismiss();
+            }
+        });
+
+        AlertDialogSuccess.setConfirmClickListener(new SweetAlertDialog.OnSweetClickListener() {
+            @Override
+            public void onClick(SweetAlertDialog sweetAlertDialog) {
+
+                //Dismiss your alert here then you will be able to call it again
+                sweetAlertDialog.dismiss();
+            }
+        });
+
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                getDataSurvey();
+                if (spWilayah.getSelectedItemPosition() == 0 || edNomor.getText().toString() == "" || edNomor.getText().toString() == null){
+                    AlertDialogError.setTitleText("Error").setContentText("Silankan Pilih WIlayah dan No Urut/ID Pelanggan terlebih dahulu").setConfirmText("OK").show();
+                }else{
+                    getDataSurvey();
+                }
             }
         });
 
@@ -356,6 +378,7 @@ public class MainActivity extends AppCompatActivity {
 
         request.addStringParam("No", edNomor.getText().toString());
         request.addStringParam("Id_Pel", edIdPel.getText().toString());
+        request.addStringParam("Wilayah",spWilayah.getSelectedItem().toString());
 
         request.setShouldCache(false);
         Log.d("getdata", MyRequest.getDebugReqString(url, request));

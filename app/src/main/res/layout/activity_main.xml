@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:layout_marginBottom="20dp"
+        android:layout_marginBottom="50dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -36,7 +36,7 @@
                         android:id="@+id/edNomor"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:hint="Nomor"
+                        android:hint="Nomor / ID Pelanggan"
                         android:inputType="number" />
                 </android.support.design.widget.TextInputLayout>
 
@@ -48,8 +48,9 @@
                         android:id="@+id/edID_P"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:focusable="false"
                         android:hint="ID P"
-                        android:inputType="number|numberDecimal" />
+                        android:inputType="none" />
                 </android.support.design.widget.TextInputLayout>
             </LinearLayout>
         </LinearLayout>
@@ -327,7 +328,6 @@
         </LinearLayout>
 
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -440,6 +440,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1" />
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -612,22 +613,22 @@
 
         </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="horizontal">
-
-
-        <android.support.design.widget.TextInputLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
 
-            <android.support.design.widget.TextInputEditText
+
+            <android.support.design.widget.TextInputLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="Volt Ampere" />
-        </android.support.design.widget.TextInputLayout>
-    </LinearLayout>
+                android:layout_height="match_parent">
+
+                <android.support.design.widget.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="Volt Ampere" />
+            </android.support.design.widget.TextInputLayout>
+        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -667,11 +668,12 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:paddingBottom="25dp">
 
             <ImageButton
                 android:id="@+id/btnSave"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:background="@color/colorPrimary"
